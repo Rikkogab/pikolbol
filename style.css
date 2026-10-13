@@ -1,0 +1,254 @@
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f3f5;
+  padding: 20px;
+}
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+}
+
+nav h2 {
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 13px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #333;
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 95px;
+  width: 100%;
+}
+
+/* BOTH SECTIONS ARE ALWAYS VISIBLE */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  max-width: 800px;
+  padding: 25px;
+  border: 3px solid #ca0505;
+  border-radius: 8px;
+  background: #eaf6fa;
+  scroll-margin-top: 100px;
+}
+
+.panels {
+  display: flex;
+  gap: 10px;                 /* white gap = the net */
+  background: #ffffff;       /* shows through the gap as the net */
+  padding: 6px;
+  border: 3px solid #ca0505;
+  min-height: 280px;
+  width: 100%;
+}
+
+
+.panel {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;    
+  background: #00c99a;
+  border: 4px solid #000;    /* outer black sideline */
+  overflow: hidden;
+  min-height: 470px;
+}
+
+/* Top green service area */
+.panel-top {
+  flex: 1;
+  position: relative;
+  background: #00c99a;
+  border-bottom: 2px solid #000; /* line above the kitchen */
+}
+
+/* Vertical center line on the TOP half */
+.panel-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+/* Blue kitchen / non-volley zone */
+.blue-stripe {
+  height: 70px;
+  flex-shrink: 0;
+  background: #06417c;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  position: relative;
+  z-index: 2;
+}
+
+/* Bottom green service area */
+.panel-bottom {
+  flex: 1;
+  position: relative;
+  background: #00c99a;
+  border-top: 2px solid #000; /* line below the kitchen */
+}
+
+/* Vertical center line on the BOTTOM half */
+.panel-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+/* TEXT CONTENT */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 65%;
+  margin: 0 auto;
+  padding: 18px;
+  text-align: center;
+  border: 2px solid #ca0505;
+  background: white;
+}
+
+.content h3 {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #c408c0;
+}
+
+.content p {
+  font-size: 13px;
+  color: #08b1cf;
+  line-height: 1.5;
+}
+
+.content button {
+  background: #e8d65d;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 22px;
+  cursor: pointer;
+}
+
+.content button:hover {
+  background: #d7c448;
+}
+
+/* PREVIOUS AND NEXT */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background: #2929e8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background: #1717a8;
+}
+
+.pagination span {
+  color: #333;
+  font-weight: bold;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .page {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .panels {
+    min-height: 200px;
+    gap: 6px;
+  }
+
+  .panel {
+    min-height: 180px;
+  }
+
+  .blue-stripe {
+    height: 36px;
+  }
+  .content {
+    width: 90%;
+  }
+}

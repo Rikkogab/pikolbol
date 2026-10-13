@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pikolbol</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav>
+    <h2>AAA</h2>
+    <div class="nav-links">
+      <a href="#page1" class="active">Page 1</a>
+      <a href="#page2">Page 2</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- PAGE 1 -->
+    <section class="page" id="page1">
+      <div class="panels">
+        <div class="panel">
+          <div class="panel-top"></div>
+          <div class="blue-stripe"></div>
+          <div class="panel-bottom"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-top"></div>
+          <div class="blue-stripe"></div>
+          <div class="panel-bottom"></div>
+        </div>
+      </div>
+
+      <div class="content">
+        <h3>Basta Page 1 man daw ni</h3>
+        <p>
+          Welcome to Page 1. This section contains your
+          sample description and information.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PAGE 2 – court only -->
+    <section class="page" id="page2">
+
+    </section>
+
+  </main>
+
+  <div class="pagination">
+    <a href="#page1" class="btn-page">Previous</a>
+    <span id="pageNumber">Page 1 of 2</span>
+
+  </div>
+
+  <script>
+    // Highlight correct nav link + label while scrolling
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const pageNumber = document.getElementById('pageNumber');
+
+    function updateActive() {
+      let current = 'page1';
+      pages.forEach(page => {
+        const top = page.getBoundingClientRect().top;
+        if (top <= 150) current = page.id;
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+
+      pageNumber.textContent =
+        current === 'page1' ? 'Page 1 of 2' : 'Page 2 of 2';
+    }
+
+    window.addEventListener('scroll', updateActive);
+    updateActive();
+  </script>
+
+</body>
+</html>
