@@ -1,86 +1,234 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>pikolbol</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIKOLBOL| Pickleball in Motion</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
 </head>
 
 <body>
 
-  <nav>
-    <h2>AAA</h2>
-    <div class="nav-links">
-      <a href="#page1" class="active">Page 1</a>
-      <a href="#page2">Page 2</a>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <h2>AAA</h2>
+
+        <div class="nav-links">
+            <a href="#page1" class="active">Home</a>
+            <a href="#page2">About</a>
+            <a href="#page3">Contact Us</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- PAGE 1: PICKLEBALL COURT -->
+        <section class="page game-page" id="page1" aria-labelledby="game-title">
+            <header class="game-header">
+                <div class="game-intro">
+                    <h1 id="game-title">Pickleball in motion.</h1>
+                    <p>A little court-side joy. Stay for a rally.</p>
+                </div>
+                <p class="court-label" aria-hidden="true">THE PICKLEBALL COURT</p>
+            </header>
+
+            <div class="court" id="court" aria-hidden="true">
+                <svg class="court-lines" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                    <rect x="42" y="42" width="916" height="416" rx="3"></rect>
+                    <line x1="42" y1="250" x2="958" y2="250"></line>
+                    <line x1="42" y1="178" x2="958" y2="178"></line>
+                    <line x1="42" y1="322" x2="958" y2="322"></line>
+                    <line x1="500" y1="42" x2="500" y2="178"></line>
+                    <line x1="500" y1="322" x2="500" y2="458"></line>
+                </svg>
+                <canvas id="game-canvas"></canvas>
+            </div>
+        </section>
+
+
+        <!-- PAGE 2: ABOUT US -->
+        <section class="page" id="page2">
+
+            <div class="about-container">
+
+                <div class="about-heading">
+                    <h1>About Us</h1>
+                    <p>Get to know more about AAA.</p>
+                    <div class="about-line"></div>
+                </div>
+
+                <div class="about-content">
+
+                    <div class="about-image">
+                        <img src="images/pb6.jpg"
+                             alt="AAA illustration">
+                    </div>
+
+                    <div class="about-text">
+                        <h2>Who We Are</h2>
+
+                        <p>
+                            Welcome to AAA! We are dedicated to providing
+                            a welcoming and enjoyable experience for
+                            everyone who visits our website.
+                        </p>
+
+                        <p>
+                            We value your ideas, experiences, and
+                            suggestions. Our goal is to continue improving
+                            and creating a better experience for
+                            our community.
+                        </p>
+
+                        <p>
+                            Thank you for being part of our journey!
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGE 3: CONTACT US -->
+        <section class="page" id="page3">
+
+            <div class="contact-container">
+
+                <div class="contact-heading">
+                    <h1>Contact Us</h1>
+
+                    <p>
+                        Share your experiences, feedback, and concerns.
+                        We'd love to hear from you!
+                    </p>
+
+                    <div class="about-line"></div>
+                </div>
+
+                <div class="contact-content">
+
+                    <div class="contact-info">
+                        <h2>Let's Talk!</h2>
+
+                        <p>
+                            Your voice matters to us. If you have
+                            suggestions, concerns, or experiences
+                            you'd like to share, feel free to reach out.
+                        </p>
+
+                        <div class="contact-detail">
+                            <strong>Email</strong>
+                            <p>your-email@example.com</p>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong>Feedback</strong>
+                            <p>
+                                Your feedback helps us improve our
+                                website and provide a better experience.
+                            </p>
+                        </div>
+                    </div>
+
+                    <form class="contact-form"
+                          action="#page3"
+                          method="get">
+
+                        <label for="name">Full Name</label>
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               placeholder="Enter your name"
+                               required>
+
+                        <label for="email">Email Address</label>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               placeholder="Enter your email"
+                               required>
+
+                        <label for="experience">
+                            Share Your Experience
+                        </label>
+                        <textarea id="experience"
+                                  name="experience"
+                                  placeholder="Tell us about your experience..."
+                                  rows="4"></textarea>
+
+                        <label for="concern">
+                            Concerns or Suggestions
+                        </label>
+                        <textarea id="concern"
+                                  name="concern"
+                                  placeholder="Write your concerns or suggestions..."
+                                  rows="4"
+                                  required></textarea>
+
+                        <button type="submit">
+                            Submit Feedback
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PAGE INDICATOR -->
+    <div class="pagination">
+        <a href="#page1" class="btn-page">Previous</a>
+        <span id="pageNumber">Page 1 of 3</span>
+        <a href="#page3" class="btn-page">Next</a>
     </div>
-  </nav>
 
-  <main class="container">
 
-    <!-- PAGE 1 -->
-    <section class="page" id="page1">
-      <div class="panels">
-        <div class="panel">
-          <div class="panel-top"></div>
-          <div class="blue-stripe"></div>
-          <div class="panel-bottom"></div>
-        </div>
-        <div class="panel">
-          <div class="panel-top"></div>
-          <div class="blue-stripe"></div>
-          <div class="panel-bottom"></div>
-        </div>
-      </div>
+    <!-- JAVASCRIPT: NAVIGATION INDICATOR -->
+    <script>
+        const pages = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const pageNumber = document.getElementById('pageNumber');
 
-      <div class="content">
-        <h3>Basta Page 1 man daw ni</h3>
-        <p>
-          Welcome to Page 1. This section contains your
-          sample description and information.
-        </p>
+        function updateActive() {
+            let current = 'page1';
 
-      </div>
-    </section>
+            pages.forEach(page => {
+                const top = page.getBoundingClientRect().top;
 
-    <!-- PAGE 2 – court only -->
-    <section class="page" id="page2">
+                if (top <= 150) {
+                    current = page.id;
+                }
+            });
 
-    </section>
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === '#' + current
+                );
+            });
 
-  </main>
+            const pageIndex = Array.from(pages).findIndex(
+                page => page.id === current
+            ) + 1;
 
-  <div class="pagination">
-    <a href="#page1" class="btn-page">Previous</a>
-    <span id="pageNumber">Page 1 of 2</span>
+            pageNumber.textContent =
+                'Page ' + pageIndex + ' of ' + pages.length;
+        }
 
-  </div>
-
-  <script>
-    // Highlight correct nav link + label while scrolling
-    const pages = document.querySelectorAll('.page');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const pageNumber = document.getElementById('pageNumber');
-
-    function updateActive() {
-      let current = 'page1';
-      pages.forEach(page => {
-        const top = page.getBoundingClientRect().top;
-        if (top <= 150) current = page.id;
-      });
-
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-      });
-
-      pageNumber.textContent =
-        current === 'page1' ? 'Page 1 of 2' : 'Page 2 of 2';
-    }
-
-    window.addEventListener('scroll', updateActive);
-    updateActive();
-  </script>
+        window.addEventListener('scroll', updateActive);
+        updateActive();
+    </script>
 
 </body>
 </html>
